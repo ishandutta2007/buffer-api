@@ -11,7 +11,9 @@ from .api.token import Token
 
 class Client(object):
 
-    def __init__(self, auth={}, options={}):
+    def __init__(self, auth=None, options=None):
+        options = {} if options is None else options
+        auth = {} if auth is None else auth
         self.http_client = HttpClient(auth, options)
 
     def info(self):
