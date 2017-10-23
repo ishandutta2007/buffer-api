@@ -7,7 +7,7 @@ from .api.link import Link
 from .api.profile import Profile
 from .api.schedule import Schedule
 from .api.update import Update
-
+from .api.token import Token
 
 class Client(object):
 
@@ -53,3 +53,10 @@ class Client(object):
         """
         return Update(id, self.http_client)
 
+    def token(self, redirect_uri):
+        """Returns a token request api.
+
+        Args:
+            redirect_uri: Application redirect URI
+        """
+        return Token(redirect_uri, self.http_client)
